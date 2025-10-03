@@ -64,3 +64,27 @@ the object would be on the right, but the rightside of object would be touching 
         textVerticalAlign: string -- allows 'top' 'center' 'bottom'
 
         onClick: function -- if a function is defined for this, will get called with (x: number, y: number, button: number) on any mouse click
+
+
+** usage example**
+
+        UI_LIB = require('ui.main')
+        UI_SCENE = UI_LIB.new()
+        
+        -- love handles
+        
+        function love.draw()
+            UI_SCENE:draw()
+        end
+        
+        function love.mousepressed(x, y, button)
+            UI_SCENE:mouseClick(x, y, button)
+        end
+        
+        function love.mousereleased(x, y, button)
+            UI_SCENE:mouseRelease(x, y, button)
+        end
+        
+        function love.update(dt)
+            GAME_LIB:update(dt)
+        end
