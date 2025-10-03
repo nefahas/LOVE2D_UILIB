@@ -48,7 +48,7 @@ the object would be on the right, but the rightside of object would be touching 
         border: boolean -- if true, make a border
         borderColor: {r: number, g: number, b: number, a: number} -- used by :draw to render border color, not necessary  |  def {r = 0, g = 0, b = 0, a = 1}
 
-  ** most are internal, but can still be set or called externally, and are particularly useful in the case of absoluteProp**
+  **most are internal, but can still be set or called externally, and are particularly useful in the case of absoluteProp**
         
         rendered = false, -- internal property to call :draw when changes are registered
 
@@ -66,7 +66,7 @@ the object would be on the right, but the rightside of object would be touching 
         onClick: function -- if a function is defined for this, will get called with (x: number, y: number, button: number) on any mouse click
 
 
-** usage example**
+**usage example**
 
         UI_LIB = require('ui.main')
         UI_SCENE = UI_LIB.new()
@@ -87,4 +87,10 @@ the object would be on the right, but the rightside of object would be touching 
         
         function love.update(dt)
             GAME_LIB:update(dt)
+        end
+
+        local ROOM_TYPE_BUTTON = UI_SCENE:newObject('button', {y = {1, 0}, anchorY = 1, width = {0.2, 0}, height = {0.1, 0}, text = 'basic room'})
+
+        ROOM_TYPE_BUTTON.onClick = function(x, y)
+            CUR_SELECTION_ROOM = 'basic'
         end
